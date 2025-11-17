@@ -54,5 +54,13 @@ export const projects: Project[] = [
     imageUrl: "https://via.placeholder.com/400x200?text=Project+3",
     link: "https://github.com/cbenson20/project3-website",
     techList: ["JavaScript", "DOM", "Client-side Validation"]
+  },
+  {
+    title: "Simple Store App (Rails)",
+    description:
+      "A Ruby on Rails e-commerce prototype with products, categories, CSV import, and ActiveAdmin support. Built as part of full-stack web training.",
+    imageUrl: "https://via.placeholder.com/400x200?text=Rails+Store",
+    link: "https://github.com/cbenson20/simple_store",
+    techList: ["Ruby", "Rails", "SQLite", "ActiveAdmin", "Bootstrap"]
   }
 ];
