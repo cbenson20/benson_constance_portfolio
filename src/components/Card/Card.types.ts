@@ -4,4 +4,5 @@ export interface CardProps {
   imageUrl?: string;
   disabled?: boolean;
   onClick?: () => void;
+  children?: React.ReactNode;
 }
