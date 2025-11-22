@@ -1,8 +1,18 @@
-const skills = [
-  {
-    description:
-      "Full-stack developer with a passion for building efficient, scalable, and accessible web applications. I thrive in turning ideas into functional systems, collaborating with teams, and learning new technologies to improve user experience and performance.",
-    languagesFrameworks: [
+export type Skills = {
+  description: string;
+  languages: string[];
+  tools: string[];
+  cloudPlatforms: string[];
+  architectures: string[];
+  testingAutomation: string[];
+  collaboration: string[];
+};
+
+export const skills: Skills = {
+  description:
+    "I work across the full stack, from front-end interfaces to back-end APIs, deployment, and automation. I enjoy taking an idea from rough requirements to a working, tested, and deployed solution.",
+
+    languages: [
       "JavaScript (React.js, TypeScript)",
       "C#",
       "Java",
@@ -51,7 +61,8 @@ const skills = [
       "Visio",
 
     ],
-  },
-];
+  };
 
-export default skills;
+
+
+
