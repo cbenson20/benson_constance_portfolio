@@ -54,6 +54,7 @@ export const Card: React.FC<CardProps> = ({
   imageUrl,
   disabled = false,
   onClick,
+  children,
 }) => {
   const handleClick = () => {
     if (!disabled && onClick) {
@@ -64,10 +65,16 @@ export const Card: React.FC<CardProps> = ({
   return (
     <CardContainer disabled={disabled} onClick={handleClick}>
       {imageUrl && <CardImage src={imageUrl} alt={title} disabled={disabled} />}
+
       <CardContent disabled={disabled}>
         <CardTitle disabled={disabled}>{title}</CardTitle>
-        <CardText disabled={disabled}>{content}</CardText>
+
+        {content && <CardText disabled={disabled}>{content}</CardText>}
+
+        {/* NEW — now you can add JSX */}
+        {children && <div>{children}</div>}
       </CardContent>
     </CardContainer>
   );
 };
+
