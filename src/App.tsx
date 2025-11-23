@@ -9,142 +9,68 @@ import { RadioButton } from "./components/RadioButton";
 import { Img } from "./components/Img";
 import { HeroImage } from "./components/HeroImage";
 import { Card } from "./components/Card";
+import { BasicInfoSection } from "./sections/BasicInfoSection";
+import { ProjectsSection } from "./sections/ProjectsSection";
+import { SkillsSection } from "./sections/SkillsSection";
+import { ResourcesSection } from "./sections/ResourcesSection";
+import { DeveloperSetupSection } from "./sections/DeveloperSetupSection";
 
 const Container = styled.div`
   padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto 40px;
 `;
 
-const ComponentGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin: 20px 0;
+const NavBar = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
 `;
 
-const Section = styled.section`
-  margin: 40px 0;
+const NavButtonWrapper = styled.div`
+  display: inline-block;
 `;
 
-const Title = styled.h1`
-  text-align: center;
-  color: #333;
-  margin-bottom: 40px;
+const Divider = styled.hr`
+  margin: 24px 0;
 `;
+
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+}
 
 function App() {
   return (
     <Container>
-      <Title>Benson Constance UI Garden</Title>
+      <NavBar>
+        <NavButtonWrapper>
+          <Button text="Basic Info" onClick={() => scrollToSection("basic-info")} />
+        </NavButtonWrapper>
+        <NavButtonWrapper>
+          <Button text="Work" onClick={() => scrollToSection("work")} />
+        </NavButtonWrapper>
+        <NavButtonWrapper>
+          <Button text="Skills" onClick={() => scrollToSection("skills")} />
+        </NavButtonWrapper>
+        <NavButtonWrapper>
+          <Button text="Resources" onClick={() => scrollToSection("resources")} />
+        </NavButtonWrapper>
+        <NavButtonWrapper>
+          <Button text="Dev Setup" onClick={() => scrollToSection("developer-setup")} />
+        </NavButtonWrapper>
+      </NavBar>
 
-      <Section>
-        <h2>Buttons</h2>
-        <ComponentGrid>
-          <Button text="Primary Button" />
-          <Button text="Disabled Button" disabled={true} />
-        </ComponentGrid>
-      </Section>
+      <Divider />
 
-      <Section>
-        <h2>Labels</h2>
-        <ComponentGrid>
-          <Label text="Normal Label" />
-          <Label text="Disabled Label" disabled={true} />
-        </ComponentGrid>
-      </Section>
-
-      <Section>
-        <h2>Text</h2>
-        <ComponentGrid>
-          <Text content="This is normal text" />
-          <Text content="This is disabled text" disabled={true} />
-        </ComponentGrid>
-      </Section>
-
-      <Section>
-        <h2>Table</h2>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableCell isHeader>Name</TableCell>
-              <TableCell isHeader>Age</TableCell>
-            </TableRow>
-          </TableHeader>
-          <tbody>
-            <TableRow>
-              <TableCell>John Doe</TableCell>
-              <TableCell>30</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Jane Smith</TableCell>
-              <TableCell>25</TableCell>
-            </TableRow>
-          </tbody>
-          <TableFooter>
-            <TableRow>
-              <TableCell>Total</TableCell>
-              <TableCell>2 people</TableCell>
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </Section>
-
-      <Section>
-        <h2>Dropdown</h2>
-        <ComponentGrid>
-          <Dropdown options={["Option 1", "Option 2", "Option 3"]} />
-          <Dropdown options={["Option A", "Option B"]} disabled={true} />
-        </ComponentGrid>
-      </Section>
-
-      <Section>
-        <h2>Radio Buttons</h2>
-        <ComponentGrid>
-          <RadioButton label="Option 1" name="group1" />
-          <RadioButton label="Disabled Option" disabled={true} />
-        </ComponentGrid>
-      </Section>
-
-      <Section>
-        <h2>Images</h2>
-        <ComponentGrid>
-          <Img src="https://via.placeholder.com/300x200" alt="Normal Image" width="300px" />
-          <Img
-            src="https://via.placeholder.com/300x200"
-            alt="Disabled Image"
-            disabled={true}
-            width="300px"
-          />
-        </ComponentGrid>
-      </Section>
-
-      <Section>
-        <h2>Hero Image</h2>
-        <HeroImage
-          src="https://via.placeholder.com/1200x400"
-          alt="Hero Section"
-          title="Welcome to UI Garden"
-          subtitle="A beautiful component library"
-        />
-      </Section>
-
-      <Section>
-        <h2>Cards</h2>
-        <ComponentGrid>
-          <Card
-            title="Sample Card"
-            content="This is a sample card with some content to demonstrate the card component."
-            imageUrl="https://via.placeholder.com/300x200"
-          />
-          <Card
-            title="Disabled Card"
-            content="This card is disabled and cannot be interacted with."
-            imageUrl="https://via.placeholder.com/300x200"
-            disabled={true}
-          />
-        </ComponentGrid>
-      </Section>
+      <BasicInfoSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ResourcesSection />
+      <DeveloperSetupSection />
     </Container>
   );
 }

@@ -54,11 +54,16 @@ export const Card: React.FC<CardProps> = ({
   imageUrl,
   disabled = false,
   onClick,
-  children,
+  children
 }) => {
-  const handleClick = () => {
-    if (!disabled && onClick) {
-      onClick();
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (disabled) {
+      e.stopPropagation();
+      return;
+    }
+    if (onClick) {
+      // forward event to provided handler; cast to any to be permissive with prop types
+      (onClick as any)(e);
     }
   };
 
@@ -69,10 +74,11 @@ export const Card: React.FC<CardProps> = ({
       <CardContent disabled={disabled}>
         <CardTitle disabled={disabled}>{title}</CardTitle>
 
-        {content && <CardText disabled={disabled}>{content}</CardText>}
-
-        {/* NEW — now you can add JSX */}
-        {children && <div>{children}</div>}
+        {children ? (
+          children
+        ) : (
+          <CardText disabled={disabled}>{content}</CardText>
+        )}
       </CardContent>
     </CardContainer>
   );
