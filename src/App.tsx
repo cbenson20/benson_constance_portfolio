@@ -1,14 +1,5 @@
-import React from "react";
 import styled from "styled-components";
 import { Button } from "./components/Button";
-import { Label } from "./components/Label";
-import { Text } from "./components/Text";
-import { Table, TableHeader, TableRow, TableCell, TableFooter } from "./components/Table";
-import { Dropdown } from "./components/Dropdown";
-import { RadioButton } from "./components/RadioButton";
-import { Img } from "./components/Img";
-import { HeroImage } from "./components/HeroImage";
-import { Card } from "./components/Card";
 import { BasicInfoSection } from "./sections/BasicInfoSection";
 import { ProjectsSection } from "./sections/ProjectsSection";
 import { SkillsSection } from "./sections/SkillsSection";
