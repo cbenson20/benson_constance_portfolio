@@ -34,22 +34,22 @@ export const ProjectsSection: React.FC = () => {
     <Section id="work">
       <h2>Work / Projects</h2>
       <Grid>
-{work.map((project) => (
-  <Card key={project.title} title={project.title} imageUrl={project.image}>
-    <Text content={project.description} />
-    <strong>Tech:</strong>
-    <TechList>
-      {project.tech.map(t => (
-        <TechItem key={t}>{t}</TechItem>
-      ))}
-    </TechList>
-    <ProjectActions>
-      <a href={project.link} target="_blank" rel="noreferrer">
-        <Button text="View Project" />
-      </a>
-    </ProjectActions>
-  </Card>
-))}
+        {work.map((project) => (
+          <Card key={project.title} title={project.title} imageUrl={project.image}>
+            <Text content={project.description} />
+            <strong>Tech:</strong>
+            <TechList>
+              {project.tech.map((t) => (
+                <TechItem key={t}>{t}</TechItem>
+              ))}
+            </TechList>
+            <ProjectActions>
+              <a href={project.link} target="_blank" rel="noreferrer">
+                <Button text="View Project" />
+              </a>
+            </ProjectActions>
+          </Card>
+        ))}
       </Grid>
     </Section>
   );

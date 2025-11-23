@@ -6,14 +6,25 @@ export type WorkItem = {
   tech: string[];
 };
 
-export const work: WorkItem[]= [
+export const work: WorkItem[] = [
   {
     title: "UI Garden Component Library & Build Pipeline",
     description:
       "A fully reusable and styled React component library built with TypeScript and Storybook, and a full CI pipeline using Husky, ESLint, Prettier, tests, Docker, and GitHub Actions.",
     image: "/images/ui-garden.png",
     link: "https://github.com/cbenson20/benson_constance_ui_garden",
-    tech: ["React", "TypeScript", "Storybook", "Jest", "Style Components","ESLint", "Prettier","GitHub Actions","Docker", "Nginx"],
+    tech: [
+      "React",
+      "TypeScript",
+      "Storybook",
+      "Jest",
+      "Style Components",
+      "ESLint",
+      "Prettier",
+      "GitHub Actions",
+      "Docker",
+      "Nginx",
+    ],
   },
   {
     title: "Ucheson & Sons E-commerce Platform",
@@ -56,5 +67,3 @@ export const work: WorkItem[]= [
     tech: ["JavaScript", "HTML", "CSS"],
   },
 ];
-
-

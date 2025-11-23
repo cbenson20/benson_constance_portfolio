@@ -54,7 +54,7 @@ export const Card: React.FC<CardProps> = ({
   imageUrl,
   disabled = false,
   onClick,
-  children
+  children,
 }) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (disabled) {
@@ -74,13 +74,8 @@ export const Card: React.FC<CardProps> = ({
       <CardContent disabled={disabled}>
         <CardTitle disabled={disabled}>{title}</CardTitle>
 
-        {children ? (
-          children
-        ) : (
-          <CardText disabled={disabled}>{content}</CardText>
-        )}
+        {children ? children : <CardText disabled={disabled}>{content}</CardText>}
       </CardContent>
     </CardContainer>
   );
 };
-

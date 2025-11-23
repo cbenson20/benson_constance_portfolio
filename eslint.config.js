@@ -1,31 +1,29 @@
-import js from "@eslint/js";
-import tseslint from "typescript-eslint";
-import reactPlugin from "eslint-plugin-react";
-import reactHooks from "eslint-plugin-react-hooks";
+import eslintPluginReact from "eslint-plugin-react";
+import eslintPluginPrettier from "eslint-plugin-prettier";
+
+import eslintParser from "@typescript-eslint/parser";
+import eslintTSPlugin from "@typescript-eslint/eslint-plugin";
 
 export default [
   {
-    ignores: ["node_modules", "build", "storybook-static", "dist", ".github", "Dockerfile"],
-  },
-  js.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-    files: ["src/**/*.{js,jsx,ts,tsx}"],
-    plugins: {
-      react: reactPlugin,
-      "react-hooks": reactHooks,
-    },
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["dist/**"],
     languageOptions: {
+      parser: eslintParser,
       parserOptions: {
         ecmaVersion: 2020,
         sourceType: "module",
         ecmaFeatures: { jsx: true },
       },
     },
+    plugins: {
+      react: eslintPluginReact,
+      prettier: eslintPluginPrettier,
+      "@typescript-eslint": eslintTSPlugin,
+    },
     rules: {
+      "prettier/prettier": "error",
       "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
-      "no-unused-vars": "warn",
       "@typescript-eslint/no-unused-vars": "warn",
     },
   },

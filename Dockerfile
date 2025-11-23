@@ -2,7 +2,7 @@
 # Stage 1: Build React App
 FROM node:20-alpine AS build
 
-WORKDIR /app
+WORKDIR /benson_constance_final_site
 
 # Copy package files
 COPY package*.json ./
@@ -20,13 +20,13 @@ RUN npm run build
 FROM nginx:alpine
 
 # Create working directory for assignment requirement
-WORKDIR /benson_constance_ui_garden_build_checks
+WORKDIR /benson_constance_final_site
 
 # Copy build output from first stage
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /benson_constance_final_site/build /usr/share/nginx/html
 
-# Expose port 8018
-EXPOSE 8018
+# Expose port 5575
+EXPOSE 5575
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]

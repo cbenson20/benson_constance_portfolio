@@ -49,5 +49,3 @@ export const resources: Resource[] = [
     link: "https://react.dev/",
   },
 ];
-
-

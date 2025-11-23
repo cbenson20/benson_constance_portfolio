@@ -1,8 +1,8 @@
-import React from "react";
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("renders main heading", () => {
+test("renders portfolio heading", () => {
   render(<App />);
-  expect(screen.getByText("Benson Constance UI Garden")).toBeInTheDocument();
+  expect(screen.getByText(/portfolio/i)).toBeInTheDocument();
 });
