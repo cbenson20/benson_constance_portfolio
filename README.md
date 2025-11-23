@@ -1,90 +1,124 @@
-Assignment 13 – Code Quality and Build Checks
+Constance Benson — Portfolio Website
 
-Hi, I’m Constance Benson, a Full-Stack Web Development student at Red River College Polytechnic.
-This project builds on my UI Garden from Assignment 12, the one that showcased reusable UI components (like Buttons, Cards, Labels, and Tables).
+A personal developer portfolio built with React, TypeScript, and my own UI Component Library (Buttons, Cards, Labels, Text, etc.) created in earlier assignments.
+The site highlights my coursework, projects, skills, developer setup, and resources I have used throughout my Full-Stack Web Development program at RRC Polytech.
 
-# In this assignment, I focused on something different:
+# Tech Stack
 
-making sure every piece of code that goes into the project is clean, consistent, and working before it’s ever committed or deployed.
-That’s what “Code Quality and Build Checks” means.
+Frontend
 
-# What This Project Adds
+React (CRA)
 
-In Assignment 12, the goal was building.
-In Assignment 13, the goal is protecting the build,by adding tools that automatically check and test the code.
+TypeScript
 
-Here’s the Tools i added and what each one does:
+Styled-Components
 
-**Prettier**: Automatically formats code so everything looks consistent,same spacing, quotes, and indentation everywhere.
-**ESLint**: Scans the code for mistakes or “bad habits” and helps me follow React + TypeScript best practices.
-**Husky**: Runs checks before I commit changes, so broken code never gets saved into Git.
-**GitHub Actions**: Re-runs all the checks online whenever I push my code, to make sure everything still works on GitHub.
-**Docker**: Packages the whole app so it can run exactly the same on any computer, like a self-contained box.
+Custom UI Component Library
 
-# How the Pre-Commit Checks Work
+Developer Workflow
 
-Before any code is committed, Husky automatically runs three checks in order:
+ESLint
 
-npm run format:check
-npm run lint
-npm test
+Prettier
 
-Here’s what happens behind the scenes:
+Husky (pre-commit checks)
 
-Prettier checks that my code is neatly formatted.
-If something’s off, it stops me and tells me to fix it.
+GitHub Actions (CI pipeline)
 
-ESLint scans for logic or syntax errors.
-For example, if I forgot to import React or typed a variable name wrong, it catches it.
+Deployment
 
-Tests run automatically using Jest and React Testing Library to make sure components behave correctly.
+Docker
 
-If any of these steps fail, Husky stops the commit.
-That means no messy or broken code ever gets pushed to GitHub.
+Nginx (production hosting)
 
-# Continuous Integration (GitHub Actions)
+# Features
 
-Once my code passes all local checks and I push it to GitHub,
-GitHub Actions kicks in automatically using a file called:
-.github/workflows/ci.yml
+Clean, accessible UI using my own reusable components
+Fully responsive layout
+Sections for Work, Skills, Resources, Developer Setup
+Dockerized production build running on localhost:5575
+Automated formatting, linting, and tests before every commit GitHub Actions CI that checks code quality on every push
 
-Think of this file as GitHub’s “to-do list.”
-Every time I push or open a pull request, GitHub:
+# Project Structure
 
-Installs Node.js and all dependencies
+components:my UI library (Buttons, Cards, Dropdowns, etc.)
+portfolioData:all the written content for the portfolio
+sections:each section of the site (Work, Skills, Resources, Developer Setup)
+App.tsx:combines all sections into the final layout
 
-Runs npm run format:check
+Run the Project (Local Dev)
+npm install
+npm start
 
-Runs npm run lint
+App runs on:
 
-Runs all tests with npm test
+http://localhost:3000
 
-Builds the project for production
+Run the Docker Production Build (Assignment 14 Requirement)
 
-If everything passes, the workflow shows a green check mark.
-If something breaks, GitHub flags it right away, so I can fix it before merging.
-
-git add .
-git commit -m "testing CI workflow"
-git push origin main
-
-This is called “CI Pipeline”
-
-# Running the Project in Docker
-
-Docker makes it easy for anyone to run this project on their computer without installing Node, React, or any dependencies.
-Everything is already inside the container.
-
-# NOTE: Replace your project name with my my name
-
-1. Build the Docker image
-   docker build -t benson_constance_coding_assignment13 .
+1. Build the image
+   docker build -t constance_benson_coding_assignment14 .
 
 2. Run the container
-   docker run -p 8018:80 --name benson_constance_coding_assignment13 benson_constance_coding_assignment13
+   docker run -p 5575:80 constance_benson_coding_assignment14
 
-3. Open the app
+Now open:
 
-Visit http://localhost:8018
-in your browser.
-You’ll see the same app running just like it did in Assignment 12 — only now, it’s been checked, tested, and verified automatically.
+http://localhost:5575
+
+Portfolio Sections
+
+1. Basic Information
+
+Short intro, background, and what I do as a developer.
+
+2. Work
+
+Projects I’ve completed
+
+Title
+
+Description
+
+Image
+
+Live link / GitHub repo
+
+Tech stack used
+
+3. Skills
+
+Description
+
+Languages / Frameworks
+
+Tools
+
+4. Resources
+
+Helpful materials such as YouTube channels, courses, icons, or tools that helped me learn.
+
+5. Developer Setup
+
+VS Code extensions
+
+Terminal setup
+
+Fonts / themes I use
+
+CI/CD Pipeline (GitHub Actions)
+
+Every push to GitHub triggers a workflow that runs:
+
+Prettier
+
+ESLint
+
+Unit tests
+
+Build fails if any check fails, ensuring clean and consistent code.
+
+# License
+
+This portfolio is built for academic and professional use.
+Feel free to reference, but do not copy directly without permission.
