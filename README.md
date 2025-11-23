@@ -62,7 +62,7 @@ Run the Docker Production Build (Assignment 14 Requirement)
 2. Run the container
    docker run -p 5575:80 constance_benson_coding_assignment14
 
-Now open:
+open:
 
 http://localhost:5575
 
